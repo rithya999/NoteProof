@@ -1,0 +1,69 @@
+{
+  "created": "2026-11-15T21:01:53.735161",
+  "model": "gemini-3.5-flash-lite",
+  "results": [
+    {
+      "claim": "Laplace smoothing adds 1 to the count of every word in the vocabulary.",
+      "verdict": "SUPPORTED",
+      "confidence": 100,
+      "explanation": "Evidence E1 explicitly states for Laplace Smoothing: 'Add 1 to every word (type) count to get an adjusted count c*'.",
+      "evidence": [
+        {
+          "source": "smoothing.nlp.3.pdf",
+          "page": 7,
+          "text": "Laplace Smoothing \u2022 For unigrams: \u2022 Add 1 to every word (type) count to get an adjusted count c* \u2022 Normalize by N (#tokens) + V (#types) \u2022 Original unigram probability \u2022 New unigram probability N c w P i i \uf03d ) ( V N c w P i i LP \uf02b \uf02b \uf03d 1 ) (",
+          "similarity": 0.5833333333333334
+        }
+      ]
+    },
+    {
+      "claim": "The adjusted probability is calculated by dividing the adjusted count by N + V, where N is the total number of tokens and V is the vocabulary size.",
+      "verdict": "SUPPORTED",
+      "confidence": 100,
+      "explanation": "Evidence [E2] states for Laplace Smoothing that the new unigram probability is calculated by normalizing the adjusted count c* by N + V, where N is the number of tokens and V is the vocabulary size (types).",
+      "evidence": [
+        {
+          "source": "smoothing.nlp.3.pdf",
+          "page": 7,
+          "text": "Laplace Smoothing \u2022 For unigrams: \u2022 Add 1 to every word (type) count to get an adjusted count c* \u2022 Normalize by N (#tokens) + V (#types) \u2022 Original unigram probability \u2022 New unigram probability N c w P i i \uf03d ) ( V N c w P i i LP \uf02b \uf02b \uf03d 1 ) (",
+          "similarity": 0.3888888888888889
+        }
+      ]
+    },
+    {
+      "claim": "Laplace smoothing assigns zero probability to words that have never appeared in the training data.",
+      "verdict": "UNVERIFIABLE",
+      "confidence": 100,
+      "explanation": "The provided evidence mentions zero probabilities and smoothing techniques generally, but it does not contain any information about Laplace smoothing or whether it assigns zero probability to words that have never appeared in the training data.",
+      "evidence": []
+    },
+    {
+      "claim": "Good-Turing smoothing uses the frequency of frequency counts to estimate probabilities for unseen events.",
+      "verdict": "SUPPORTED",
+      "confidence": 90,
+      "explanation": "Evidence E3 states that Good-Turing Discounting re-estimates probability mass for zero or low count n-grams by looking at n-grams with higher counts, specifically noting that N0's adjusted count is a function of the count of n-grams that occur once (N1), which matches the definition of using the frequency of frequency counts to estimate probabilities for unseen events.",
+      "evidence": [
+        {
+          "source": "smoothing.nlp.3.pdf",
+          "page": 11,
+          "text": "Good-Turing Discounting \u2022 Re-estimate amount of probability mass for zero (or low count) ngrams by looking at ngrams with higher counts \u2022 Estimate \u2022 E.g. N0\u2019s adjusted count is a function of the count of ngrams that occur once, N1 \u2022 Assumes: \u2022 Word bigrams each follow a binomial distribution \u2022 We know number of unseen bigrams (VxV-seen) \uf028 \uf029 Nc Nc c c 1 1 * \uf02b \uf02b \uf03d",
+          "similarity": 0.5714285714285714
+        }
+      ]
+    },
+    {
+      "claim": "In Katz backoff, when a trigram is unavailable, the model can back off to a bigram probability.",
+      "verdict": "SUPPORTED",
+      "confidence": 100,
+      "explanation": "Evidence E1 explicitly states that in backoff methods like Katz '87 for a trigram model, where a trigram is unavailable, the model backs off to a bigram if available.",
+      "evidence": [
+        {
+          "source": "smoothing.nlp.3.pdf",
+          "page": 16,
+          "text": "Backoff Methods (e.g. Katz \u201987) \u2022 For e.g. a trigram model \u2022 Compute unigram, bigram and trigram probabilities \u2022 Usage: \u2022 Where trigram unavailable back off to bigram if available, o.w. back off to the current word\u2019s unigram probability \u2022 E.g An omnivorous unicorn",
+          "similarity": 0.75
+        }
+      ]
+    }
+  ]
+}

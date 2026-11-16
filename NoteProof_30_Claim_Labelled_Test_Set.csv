@@ -1,0 +1,31 @@
+test_id,claim,expected_label,source_page_or_status,human_label_rationale
+S01,Laplace smoothing adds 1 to every word type count.,SUPPORTED,7,The notes say to add 1 to every word (type) count.
+S02,Laplace-smoothed unigram probabilities are normalized using N plus V.,SUPPORTED,7,The notes define N as token count and V as type count in the denominator.
+S03,"In the unigram example, the vocabulary size V is 4.",SUPPORTED,7,The example states V=4.
+S04,"In the unigram example, the total token count N is 20.",SUPPORTED,7,The example states N=20.
+S05,The original count for 'eat' in the unigram example is 10.,SUPPORTED,7,The table lists eat with true count 10.
+S06,The adjusted count for 'eat' in the unigram example is 11.,SUPPORTED,7,The table lists eat with new count 11.
+S07,The word 'happily' has an original count of zero in the example.,SUPPORTED,7,The table lists happily with true count 0.
+S08,"After Laplace smoothing, 'happily' has an adjusted count of 1.",SUPPORTED,7,The table lists happily with new count 1.
+S09,Good-Turing discounting reallocates probability mass for zero- or low-count n-grams by looking at higher-count n-grams.,SUPPORTED,11,The saved evidence record quotes this description from the lecture notes.
+S10,"For a trigram model using Katz-style backoff, an unavailable trigram can back off to a bigram if available.",SUPPORTED,16,The saved evidence record quotes this rule from the lecture notes.
+C01,Laplace smoothing subtracts 1 from every word type count.,CONTRADICTED,7,"The notes say add 1, not subtract 1."
+C02,Laplace smoothing uses N minus V as the denominator.,CONTRADICTED,7,The notes specify N plus V.
+C03,The unigram example uses a vocabulary size of 20.,CONTRADICTED,7,The notes specify V=4.
+C04,The unigram example contains 4 total tokens.,CONTRADICTED,7,The notes specify N=20.
+C05,The original count for 'eat' in the example is 11.,CONTRADICTED,7,The notes list true count 10; 11 is the adjusted count.
+C06,The adjusted count for 'eat' in the example is 10.,CONTRADICTED,7,The notes list adjusted count 11.
+C07,The word 'happily' already has a true count of 1 in the example.,CONTRADICTED,7,The notes list its true count as 0.
+C08,The Laplace-smoothed adjusted count for 'happily' remains zero.,CONTRADICTED,7,The notes list its adjusted count as 1.
+C09,"In the Good-Turing example, the count of Indian-spicy is 1.",CONTRADICTED,61,The table lists Indian-spicy with count 0.
+C10,"When a trigram is unavailable, Katz backoff always jumps directly to a bigram even if no bigram is available.",CONTRADICTED,16,The notes say back off to a bigram if available; otherwise use the current word's unigram probability.
+U01,The lecture recommends a neural transformer for Laplace smoothing.,UNVERIFIABLE,Not stated,The available lecture material does not state this.
+U02,The lecture says Laplace smoothing was invented in 1998.,UNVERIFIABLE,Not stated,No invention date is provided in the available material.
+U03,The notes identify Python as the required programming language for Good-Turing discounting.,UNVERIFIABLE,Not stated,No programming-language requirement is stated.
+U04,The lecture gives a runtime benchmark for Katz backoff in milliseconds.,UNVERIFIABLE,Not stated,No runtime benchmark is provided.
+U05,The lecture states that Laplace smoothing is always more accurate than Good-Turing smoothing.,UNVERIFIABLE,Not stated,The available material does not make this comparison.
+U06,The lecture names a specific university that created the Good-Turing method.,UNVERIFIABLE,Not stated,No university attribution is present in the available material.
+U07,The lecture provides a complete implementation of Katz backoff in Java.,UNVERIFIABLE,Not stated,No Java implementation is provided.
+U08,The lecture specifies that all NLP models must use a GPU.,UNVERIFIABLE,Not stated,No GPU requirement is stated.
+U09,The lecture gives a measured accuracy percentage for linear interpolation.,UNVERIFIABLE,Not stated,The available material names linear interpolation but gives no accuracy percentage.
+U10,The lecture states that the Good-Turing method works only for English text.,UNVERIFIABLE,Not stated,No language restriction is stated.

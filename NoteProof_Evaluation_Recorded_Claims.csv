@@ -1,0 +1,6 @@
+claim,app_verdict,confidence,source_page,notes
+Laplace smoothing adds 1 to the count of every word in the vocabulary.,SUPPORTED,100,7,The saved app report cites the lecture statement to add 1 to every word/type count.
+"The adjusted probability is calculated by dividing the adjusted count by N + V, where N is total tokens and V is vocabulary size.",SUPPORTED,100,7,The saved app report cites the lecture normalization by N (#tokens) + V (#types).
+Laplace smoothing assigns zero probability to words that have never appeared in the training data.,UNVERIFIABLE,100,No evidence retrieved,The saved app report returned no supporting passage; this is an example of abstention.
+Good-Turing smoothing uses frequency-of-frequency counts to estimate probabilities for unseen events.,SUPPORTED,90,11,The saved app report cites the N0 adjusted count as a function of N1 and redistribution for zero/low-count n-grams.
+"In Katz backoff, when a trigram is unavailable, the model can back off to a bigram probability.",SUPPORTED,100,16,The saved app report cites the lecture description of backing off to a bigram if available.
